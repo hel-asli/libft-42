@@ -6,7 +6,7 @@
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 02:43:59 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/03 03:13:18 by hel-asli         ###   ########.fr       */
+/*   Updated: 2023/11/15 05:18:22 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	char	*str;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 
 	str = (char *)big;
+	if (len < 0)
+		return (0);
+	if (!*little)
+		return ((char *)big);
 	i = 0;
 	while (str[i] && i < len)
 	{

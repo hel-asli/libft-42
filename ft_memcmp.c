@@ -6,7 +6,7 @@
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:01:02 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/04 13:36:24 by hel-asli         ###   ########.fr       */
+/*   Updated: 2023/11/14 05:17:07 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h" 
@@ -14,11 +14,11 @@
 int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
 	size_t				i;
-	const unsigned char	*s1;
-	const unsigned char	*s2;
+	unsigned char	*s1;
+	unsigned char	*s2;
 
-	s1 = (const unsigned char *)str1;
-	s2 = (const unsigned char *)str2;
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
 	i = 0;
 	while (i < n)
 	{

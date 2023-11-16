@@ -6,7 +6,7 @@
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 10:54:50 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/05 01:58:38 by hel-asli         ###   ########.fr       */
+/*   Updated: 2023/11/14 05:02:35 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,23 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t num)
 {
-	size_t		i;
-	char		*d;
-	const char	*s;
+	void *ptr;
 
-	d = (char *)dest;
-	s = (const char *)src;
-	i = 0;
-	
-	if (d < s)
+	ptr = dest;
+	if (!dest && !src)
+		return (NULL);
+	if (dest == src)
+		return dest;
+	if (dest < src)
 	{
-		while (i < num)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		while(num--)
+			*((char *)dest++) = *((char *)src++);
 	}
 	else
 	{
-		while (num-- > 0)
-		{
-			d[num] = s[num];
-		}
+		while (num--)
+			((char *)dest)[num] = ((char *)src)[num];
 	}
 
-	return (dest);
+	return (ptr);
 }

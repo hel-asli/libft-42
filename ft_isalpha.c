@@ -6,7 +6,7 @@
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:53:58 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/02 19:11:41 by hel-asli         ###   ########.fr       */
+/*   Updated: 2023/11/14 04:35:29 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,3 +17,10 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
+
+/*
+int main ()
+{
+	printf("%d\n", ft_isalpha(66));
+}
+*/

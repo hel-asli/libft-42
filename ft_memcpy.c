@@ -6,7 +6,7 @@
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 10:40:47 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/05 01:44:41 by hel-asli         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:50:04 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -30,3 +30,19 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
+
+/*
+int main (void)
+{
+	int n[4] = {4,3,2,3};
+	int p[4];
+	ft_memcpy(p , n, sizeof(n));
+	int i;
+	i = 0;
+	while (i < 4)
+	{
+		printf("%d --- %d\n", p[i], n[i]);
+		i++;
+	}
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 22:25:06 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/09 22:44:30 by hel-asli         ###   ########.fr       */
+/*   Updated: 2023/11/15 05:49:16 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static size_t ft_getstart(char const *s1, char const *set)
 {
-	size_t i;
-	size_t j;
+	int i;
+	int j;
 	
 	i = 0;
 	while(s1[i] != '\0')
@@ -33,13 +33,13 @@ static size_t ft_getstart(char const *s1, char const *set)
 	}
 	return i;
 }
-static size_t ft_getend(char const *s1, char const *set)
+static int ft_getend(char const *s1, char const *set)
 {
 	size_t i;
 	size_t j;
 
 	i = ft_strlen(s1);
- 	while(i >= 0)
+ 	while(i > 0)
 	{
 		j = 0;
 		while (set[j])
@@ -57,8 +57,8 @@ static size_t ft_getend(char const *s1, char const *set)
 
 char *ft_strtrim(char const *s1, char const *set)
 {
-	int	start;
-	int end;
+	size_t	start;
+	size_t	end;
 	char *str;
 
 	if (!s1)
