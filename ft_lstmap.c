@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 21:45:08 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/18 01:32:41 by hel-asli         ###   ########.fr       */
+/*   Created: 2023/11/19 13:53:59 by hel-asli          #+#    #+#             */
+/*   Updated: 2023/11/19 15:08:06 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
- char	*ft_strchr(const char *s, int c)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char *str = (char *)s;
-	char ch;
+	t_list *new;
+	t_list *list;
 
-	ch = (char)c; 
-	while (*str != '\0')
+	if (!lst || !del)
+		return NULL;
+	list = NULL;
+	while (lst)
 	{
-		if (*str == ch)
-			return (str);
-		str++;
+		if (f)
+			new = ft_lstnew(f(lst->content));
+		else
+			new = ft_lstnew(lst -> content);
+		if (!new)
+		{
+			ft_lstclear(&list, del);
+			return NULL;
+		}
+		ft_lstadd_back(&list , new);
+		lst = lst-> next;
 	}
-	if (ch == '\0')
-		return (str);
-	return (NULL);
+	return list;
 }
+

@@ -1,40 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 10:16:42 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/17 23:28:21 by hel-asli         ###   ########.fr       */
+/*   Created: 2023/11/18 15:41:52 by hel-asli          #+#    #+#             */
+/*   Updated: 2023/11/19 14:29:59 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_memset(void *str, int c, size_t n)
+void ft_lstadd_back(t_list **lst,t_list *new)
 {
-	unsigned char	*s;
-	size_t			i;
-
-	i = 0;
-	s = (unsigned char *)str;
-	while (i < n)
+	t_list *last;
+	if (lst)
 	{
-		s[i] = (unsigned char)c; 
-		i++;
+		if (*lst == NULL)
+		{
+			*lst = new;
+		}
+		else
+		{
+			last = ft_lstlast(*lst);
+			last-> next = new;
+		}
 	}
-	return (str);
 }
-
 /*
 int main (void)
 {
-	int n = 99;
-	ft_memset(&n, 0 , 4);
-	printf("%d\n", n);
-	char buff[10];
-	memset(buff, 'A', sizeof(buff));
-	printf("%lu -- %s\n", sizeof(buff), buff);
+	t_list *root = NULL; 
+	t_list *new = malloc(sizeof(t_list));
+	if (!new)
+		return 0;
+	int p = 1337;
+	new-> content = &p;
+	new->next = NULL;
+
+	ft_lstadd_back(&root, new);
+
+	for (t_list *c = root; c != NULL ; c = c->next)
+	{
+		printf("%d\n", *((int *)(c -> content)));
+	}
 }
 */

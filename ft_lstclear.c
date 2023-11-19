@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 21:45:08 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/18 01:32:41 by hel-asli         ###   ########.fr       */
+/*   Created: 2023/11/18 16:10:08 by hel-asli          #+#    #+#             */
+/*   Updated: 2023/11/19 14:30:31 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
- char	*ft_strchr(const char *s, int c)
+void ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char *str = (char *)s;
-	char ch;
+	t_list *current;
+	t_list *tmp;
 
-	ch = (char)c; 
-	while (*str != '\0')
+	if (!lst || !del)
+		return ;
+
+	current = *lst;
+	while (current != NULL)
 	{
-		if (*str == ch)
-			return (str);
-		str++;
+		tmp = current;
+		current = current -> next;
+		del(tmp->content);
+		free(tmp);
 	}
-	if (ch == '\0')
-		return (str);
-	return (NULL);
+	*lst = NULL;
 }

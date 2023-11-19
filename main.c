@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 21:45:08 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/18 01:32:41 by hel-asli         ###   ########.fr       */
+/*   Created: 2023/11/19 11:08:27 by hel-asli          #+#    #+#             */
+/*   Updated: 2023/11/19 14:31:21 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-
- char	*ft_strchr(const char *s, int c)
+void del(void *content)
 {
-	char *str = (char *)s;
-	char ch;
+	free(content);
+}
 
-	ch = (char)c; 
-	while (*str != '\0')
+int main (void)
+{
+	t_list *root = ft_lstnew(ft_strdup("hamza"));
+	t_list *new = ft_lstnew(ft_strdup("hello"));
+	ft_lstadd_back(&root,new);
+	for(t_list *curr = root; curr != NULL; curr = curr -> next)
 	{
-		if (*str == ch)
-			return (str);
-		str++;
+		printf("%s\n", (char *)curr->content);
 	}
-	if (ch == '\0')
-		return (str);
-	return (NULL);
+	ft_lstclear(&root , del);
 }

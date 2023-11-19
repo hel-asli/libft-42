@@ -1,48 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 10:40:47 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/18 01:30:32 by hel-asli         ###   ########.fr       */
+/*   Created: 2023/11/18 01:34:18 by hel-asli          #+#    #+#             */
+/*   Updated: 2023/11/19 11:23:36 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int ft_lstsize(t_list *lst)
 {
-	size_t				i;
-	unsigned char		*d;	
-	const unsigned char	*s;
-
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	if (!d && !s)
-		return (0);
-
+	int i;
+	if (!lst)
+		return 0;
 	i = 0;
-	while (i < n)
+	while (lst != NULL)
 	{
-		d[i] = s[i];
+		lst = lst-> next;
 		i++;
 	}
-	return (dest);
+	return i;
 }
-
 /*
 int main (void)
 {
-	int n[4] = {4,3,2,3};
-	int p[4];
-	ft_memcpy(p , n, sizeof(n));
-	int i;
-	i = 0;
-	while (i < 4)
-	{
-		printf("%d --- %d\n", p[i], n[i]);
-		i++;
-	}
+	t_list *root = NULL;
+	t_list *new = malloc(sizeof(t_list));
+	int p = 55;
+	new->content = (int *)&p;
+	ft_lstadd_front(&root, new);
+	int n = ft_lstsize(root);
+	printf("%d\n", n);
+	printf("%d\n", *((int *)(root->content)));
 }
 */

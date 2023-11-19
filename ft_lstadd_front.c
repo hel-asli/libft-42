@@ -1,48 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 10:40:47 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/18 01:30:32 by hel-asli         ###   ########.fr       */
+/*   Created: 2023/11/18 01:11:06 by hel-asli          #+#    #+#             */
+/*   Updated: 2023/11/19 09:43:31 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t				i;
-	unsigned char		*d;	
-	const unsigned char	*s;
-
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	if (!d && !s)
-		return (0);
-
-	i = 0;
-	while (i < n)
+	if (lst && new)
 	{
-		d[i] = s[i];
-		i++;
+		new->next = *lst;
+		*lst = new;
 	}
-	return (dest);
 }
-
 /*
 int main (void)
 {
-	int n[4] = {4,3,2,3};
-	int p[4];
-	ft_memcpy(p , n, sizeof(n));
-	int i;
-	i = 0;
-	while (i < 4)
+	t_list *node;
+	node = ft_lstnew("hamza");
+	node-> next = ft_lstnew("hhejekwlr");
+	node-> next -> next = ft_lstnew("dfl;as");
+	t_list **p;
+	p = &node;
+	t_list *new;
+	new = malloc(sizeof(t_list));
+	new-> content = "dkfal;fj";
+	ft_lsadd_front(p , new);
+	t_list *c;
+	c = node;
+		
+	while (c != NULL)
 	{
-		printf("%d --- %d\n", p[i], n[i]);
-		i++;
+		printf("%s\n" , c-> content);
+		c = c-> next;
 	}
+
 }
 */
