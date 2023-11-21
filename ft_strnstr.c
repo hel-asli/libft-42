@@ -19,10 +19,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	str = (char *)big;
-	if (len < 0)
-		return (0);
 	if (!*little)
 		return ((char *)big);
+	if (len == 0)
+		return (NULL);
 	i = 0;
 	while (str[i] && i < len)
 	{

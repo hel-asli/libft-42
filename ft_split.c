@@ -98,17 +98,3 @@ char	**ft_split(char const *s, char c)
 	split[i] = NULL;
 	return (split);
 }
-/*
-int main (void)
-{
-	char *str = "hamza\nelasli\nsiham\nelasli\nelsese\n";
-	char **p = ft_split(str, '\n');
-	int i = 0;
-	while (p[i] != NULL)
-	{
-		printf("%s\n", p[i]);
-		i++;
-	}
-
-}
-*/

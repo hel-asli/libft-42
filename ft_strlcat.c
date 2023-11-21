@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	space_left;
 
 	src_len = ft_strlen(src);
+	if (dstsize == 0 && !dst)
+		return (src_len);
 	dst_len = ft_strlen(dst);
 	buff_dst = dst + dst_len;
 	space_left = dstsize - dst_len - 1;

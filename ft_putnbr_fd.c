@@ -12,13 +12,12 @@
 
 #include "libft.h"
 
-void ft_putnbr_fd(int n , int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	long nb;
-	char c;
+	long	nb;
+	char	c;
 
-	nb = (long)n;	
-
+	nb = (long)n;
 	if (nb < 0)
 	{
 		ft_putchar_fd('-', fd);

@@ -21,7 +21,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	s = (const unsigned char *)src;
 	if (!d && !s)
 		return (0);
-
 	i = 0;
 	while (i < n)
 	{
@@ -30,19 +29,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-/*
-int main (void)
-{
-	int n[4] = {4,3,2,3};
-	int p[4];
-	ft_memcpy(p , n, sizeof(n));
-	int i;
-	i = 0;
-	while (i < 4)
-	{
-		printf("%d --- %d\n", p[i], n[i]);
-		i++;
-	}
-}
-*/

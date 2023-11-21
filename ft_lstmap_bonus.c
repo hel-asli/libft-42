@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-asli <hel-asli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 11:08:27 by hel-asli          #+#    #+#             */
-/*   Updated: 2023/11/19 14:31:21 by hel-asli         ###   ########.fr       */
+/*   Created: 2023/11/19 13:53:59 by hel-asli          #+#    #+#             */
+/*   Updated: 2023/11/19 15:08:06 by hel-asli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void del(void *content)
-{
-	free(content);
-}
 
-int main (void)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *root = ft_lstnew(ft_strdup("hamza"));
-	t_list *new = ft_lstnew(ft_strdup("hello"));
-	ft_lstadd_back(&root,new);
-	for(t_list *curr = root; curr != NULL; curr = curr -> next)
+	t_list	*new;
+	t_list	*list;
+
+	if (!lst || !del)
+		return (NULL);
+	list = NULL;
+	while (lst)
 	{
-		printf("%s\n", (char *)curr->content);
+		if (f)
+			new = ft_lstnew(f(lst->content));
+		else
+			new = ft_lstnew(lst -> content);
+		if (!new)
+		{
+			ft_lstclear(&list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&list, new);
+		lst = lst-> next;
 	}
-	ft_lstclear(&root , del);
+	return (list);
 }

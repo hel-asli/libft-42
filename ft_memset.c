@@ -26,15 +26,3 @@ void	*ft_memset(void *str, int c, size_t n)
 	}
 	return (str);
 }
-
-/*
-int main (void)
-{
-	int n = 99;
-	ft_memset(&n, 0 , 4);
-	printf("%d\n", n);
-	char buff[10];
-	memset(buff, 'A', sizeof(buff));
-	printf("%lu -- %s\n", sizeof(buff), buff);
-}
-*/

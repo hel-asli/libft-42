@@ -14,9 +14,11 @@
 
 int	ft_atoi(const char *str)
 {
-	int	signe;
-	int nb; 
+	int			signe;
+	long long	tmp; 
+	long long	result;
 
+	result = 0;
 	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
 	signe = 1;
@@ -26,11 +28,15 @@ int	ft_atoi(const char *str)
 			signe *= -1;
 		str++;
 	}
-	nb = 0;
 	while (*str >= '0' && *str <= '9')
 	{
-		nb = nb * 10 + (*str - 48);
+		tmp = result * 10 + (*str - 48);
+		if (tmp < result && signe == 1)
+			return (-1);
+		if (tmp < result && signe == -1)
+			return (0);
+		result = tmp;
 		str++;
 	}
-	return (nb * signe);
+	return (result * signe);
 }

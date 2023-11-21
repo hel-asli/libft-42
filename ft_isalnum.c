@@ -13,9 +13,7 @@
 
 int	ft_isalnum(int arg)
 {
-	if (arg >= 48 && arg <= 57)
-		return (1);
-	else if ((arg >= 'a' && arg <= 'z') || (arg >= 'A' && arg <= 'Z'))
+	if (ft_isdigit(arg) || ft_isalpha(arg))
 		return (1);
 	else 
 		return (0);
